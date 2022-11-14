@@ -1,9 +1,12 @@
 import { Rating } from "flowbite-react";
 import React from "react";
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
+import { MovieContext } from "../context/result-context";
 
-export default function MovieDetails({ movies }) {
+export default function MovieDetails() {
 	const { id } = useParams();
+	const { movies } = useContext(MovieContext);
 	const movie = movies.find((m) => id == m.id);
 	const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 	return (
